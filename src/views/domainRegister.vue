@@ -12,7 +12,7 @@
 
 <script>
 // @ is an alias to /src
-import {ref, reactive} from "vue"
+import {ref} from "vue"
 
 
 export default {
