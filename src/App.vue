@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full bg-white md:py-3 pt-3 md:text-2xl">
+    <div class="shadow w-full bg-white md:py-3 pt-3 md:text-2xl">
         <div class="flex justify-between">
             <div class="md:flex">
                 <router-link class="ml-3 md:mr-3 lg:py-1" to="/">NYCU.ME</router-link>
@@ -28,7 +28,7 @@
         </div>
     </div>
 
-    <div class="mb-14"></div>
+    <div class="mb-10"></div>
     <router-view/>
 </template>
 
