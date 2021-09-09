@@ -28,7 +28,7 @@
         </div>
     </div>
 
-    <div class="mb-10"></div>
+    <div class="mb-4"></div>
     <router-view/>
 </template>
 
