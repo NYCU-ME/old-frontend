@@ -8,3 +8,5 @@ let app = createApp(App)
 app.use(router)
 app.use(VueCookieNext)
 app.mount('#app')
+
+VueCookieNext.config({expire: '1d'})

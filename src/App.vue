@@ -20,8 +20,7 @@
             </div>
         </div>
 
-
-        <div class="bg-gray-300 mt-2" :class="{hidden: data.isHidden}">
+        <div class="bg-gray-300 mt-2 bg-indigo-500 text-white md:hidden" :class="{hidden: isHidden}">
             <router-link class="block py-2 text-center border" to="/login">登入</router-link>
             <router-link class="block py-2 text-center border" to="/domainManage">網域管理</router-link>
             <router-link class="block py-2 text-center border" to="/domainRegister">網域註冊</router-link>
@@ -30,22 +29,20 @@
 
     <div class="mb-4"></div>
     <router-view/>
+
 </template>
 
 <script>
-import {reactive} from "vue"
+import {ref} from "vue"
 
 export default {
   name: 'App',
   setup() {
-      let data = reactive({
-          isHidden: true
-      })
+      const isHidden = ref(true)
       function showMobileMenu() {
-          if (data.isHidden) data.isHidden = false
-          else data.isHidden = true
+          isHidden.value = isHidden.value ^ true;
       }
-      return {data, showMobileMenu}
+      return {isHidden, showMobileMenu}
   }
 }
 </script>
