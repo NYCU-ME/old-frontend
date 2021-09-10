@@ -13,13 +13,24 @@
 // import HelloWorld from '@/components/HelloWorld.vue'
 import {useCookie} from 'vue-cookie-next'
 import {useRoute}  from 'vue-router'
+import axios from 'axios'
+
+let baseURL = "https://api.nycu.me"
 
 export default {
   name: 'Home',
-  setup() {
+  async setup() {
       let route = useRoute()
       const {setCookie} = useCookie()
-      setCookie("code", route.query.code)
+      try {
+          const result = await axios.get(baseURL + "/oauth/" + route.query.code)
+          setCookie("token", result)
+      } catch (error) {
+          if (error.response) {
+              let statusCode = error.response.status
+              console.log(statusCode)
+          }
+      }
       console.log(route.query.code)
   }
 }
