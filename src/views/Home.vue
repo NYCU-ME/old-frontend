@@ -22,16 +22,21 @@ export default {
   async setup() {
       let route = useRoute()
       const {setCookie} = useCookie()
-      try {
-          const result = await axios.get(baseURL + "/oauth/" + route.query.code)
-          setCookie("token", result)
-      } catch (error) {
-          if (error.response) {
-              let statusCode = error.response.status
-              console.log(statusCode)
-          }
+      if (route.query.code != undefined) {
+          const result = await
+          axios.get(baseURL + "/oauth/" + route.query.code).then(
+              (result) => {
+                  setCookie("token", result.data.token)
+              }
+          ).catch(
+              (error) => {
+                  if (error.response) {
+                      let statusCode = error.response.status
+                      console.log(statusCode)
+                  }
+              }
+          )
       }
-      console.log(route.query.code)
   }
 }
 </script>
