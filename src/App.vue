@@ -1,5 +1,5 @@
 <template>
-    <div class="shadow w-full bg-white md:py-3 pt-3 md:text-2xl">
+    <div class="bg-indigo-500 shadow w-full md:py-3 pt-3 md:text-2xl text-white">
         <div class="flex justify-between">
             <div class="md:flex">
                 <router-link class="ml-3 md:mr-3 lg:py-1" to="/">NYCU.ME</router-link>
