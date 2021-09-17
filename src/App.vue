@@ -7,7 +7,8 @@
             <div class="md:flex hidden">
                 <router-link class="md:ml-3 lg:py-1" to="/domainManage">網域管理</router-link>
                 <router-link class="md:ml-3 lg:py-1" to="/domainRegister">網域註冊</router-link>
-                <router-link class="md:ml-3 mr-3 lg:py-1" to="/login">登入</router-link>
+                <router-link v-if="isLogin()" class="md:ml-3 mr-3 lg:py-1" to="/logout">登出</router-link>
+                <router-link v-else class="md:ml-3 mr-3 lg:py-1" to="/login">登入</router-link>
             </div>
 
             <div class="md:hidden flex mr-3">
@@ -21,7 +22,8 @@
         </div>
 
         <div class="bg-gray-300 mt-2 bg-indigo-500 text-white md:hidden" :class="{hidden: isHidden}">
-            <router-link class="block py-2 text-center border" to="/login">登入</router-link>
+            <router-link v-if="isLogin()" class="block py-2 text-center border" to="/logout">登出</router-link>
+            <router-link v-else class="block py-2 text-center border" to="/login">登入</router-link>
             <router-link class="block py-2 text-center border" to="/domainManage">網域管理</router-link>
             <router-link class="block py-2 text-center border" to="/domainRegister">網域註冊</router-link>
         </div>
@@ -34,15 +36,27 @@
 
 <script>
 import {ref} from "vue"
+import {useCookie} from 'vue-cookie-next'
 
 export default {
   name: 'App',
   setup() {
       const isHidden = ref(true)
+      const cookie = useCookie()
+
       function showMobileMenu() {
           isHidden.value = isHidden.value ^ true;
       }
-      return {isHidden, showMobileMenu}
+
+      function isLogin() {
+          if (cookie.isCookieAvailable("token")) {
+              return true;
+          } else {
+              return false;
+          }
+      }
+
+      return {isHidden, showMobileMenu, isLogin}
   }
 }
 </script>

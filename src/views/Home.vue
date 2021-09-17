@@ -18,15 +18,15 @@ import axios from 'axios'
 let baseURL = "https://api.nycu.me"
 
 export default {
-  name: 'Home',
-  async setup() {
+  name: 'home',
+  setup() {
       let route = useRoute()
-      const {setCookie} = useCookie()
+      const cookie = useCookie()
+
       if (route.query.code != undefined) {
-          const result = await
           axios.get(baseURL + "/oauth/" + route.query.code).then(
               (result) => {
-                  setCookie("token", result.data.token)
+                  cookie.setCookie("token", result.data.token)
               }
           ).catch(
               (error) => {
