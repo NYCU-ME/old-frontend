@@ -30,14 +30,13 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 paste the code like following
 
 ```javascript
-let currentUrl = "http://localhost:8080"
+let homepageURL = "http://localhost:8080"
 
 export default {
-    getCurrentUrl: function() {
-        return currentUrl
+    getHomepageURL: function() {
+        return homepageURL
     }
 }
-
 ```
 
-And change currentUrl to your home page url (ex: https://www.nycu.me)
+And change homepageURL variable(ex: https://www.nycu.me)
