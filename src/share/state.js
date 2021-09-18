@@ -14,15 +14,12 @@ const isMobileMenuHidden = computed(
     () => {
         return uiState.isMobileMenuHidden
     }
-);
+)
 
-const isLogin = function () {
+const isLogin = function() {
     const cookie = useCookie()
-    if (cookie.isCookieAvailable("token")) {
-        return true;
-    } else {
-        return false;
-    }
+    if (cookie.isCookieAvailable("token")) return true;
+    else return false;
 }
 
 const state = {

@@ -19,26 +19,26 @@ import shared from "@/share/shared"
 let baseURL = shared.getBaseURL()
 
 export default {
-  name: 'home',
-  setup() {
-      let route = useRoute()
-      const cookie = useCookie()
+    name: 'home',
+    setup() {
+        let route = useRoute()
+        const cookie = useCookie()
 
-      if (route.query.code != undefined) {
-          axios.get(baseURL + "/oauth/" + route.query.code).then(
-              (result) => {
-                  cookie.setCookie("token", result.data.token)
-              }
-          ).catch(
-              (error) => {
-                  if (error.response) {
-                      let statusCode = error.response.status
-                      console.log(statusCode)
-                      alert("登入失敗")
-                  }
-              }
-          )
-      }
-  }
+        if (route.query.code != undefined) {
+            axios.get(baseURL + "/oauth/" + route.query.code).then(
+                (result) => {
+                    cookie.setCookie("token", result.data.token)
+                }
+            ).catch(
+                (error) => {
+                    if (error.response) {
+                        let statusCode = error.response.status
+                        console.log(statusCode)
+                        alert("登入失敗")
+                    }
+                }
+            )
+        }
+    }
 }
 </script>

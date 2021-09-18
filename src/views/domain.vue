@@ -1,6 +1,6 @@
 <template>
     <domainRegister> </domainRegister>
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    <domainManage domains="domains"></domainManage>
 </template>
 
 <script>
@@ -8,6 +8,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 import state from '@/share/state'
 import config from '@/share/config'
 import domainRegister from '@/components/domainRegister.vue'
+import domainManage from '@/components/domainManage.vue'
 import {useCookie} from 'vue-cookie-next'
 import axios from 'axios'
 import shared from "@/share/shared"
@@ -17,7 +18,8 @@ let baseURL = shared.getBaseURL()
 export default {
     name: 'domain',
     components: {
-        domainRegister
+        domainRegister,
+        domainManage
     },
     setup() {
         const {isLogin} = state;
@@ -26,6 +28,7 @@ export default {
             location.replace(config.getHomepageURL())
         }
 
+        let domains = []
         let cookie = useCookie()
         let requestConfig = {
             headers: {
@@ -34,7 +37,7 @@ export default {
         }
         axios.get(baseURL + "/auth", requestConfig).then(
             (result) => {
-                console.log(result)
+                domains = result.data["domains"]
             }
         ).catch(
             (error) => {
@@ -49,6 +52,7 @@ export default {
             }
         )
 
+        return {domains}
     }
 }
 </script>
