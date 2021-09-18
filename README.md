@@ -27,7 +27,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### src/share/config.js
 
-paste some code like following
+paste the code like following
 
 ```javascript
 let currentUrl = "http://localhost:8080"
