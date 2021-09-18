@@ -20,7 +20,7 @@
             </div>
         </div>
 
-        <div class="text-left md:hidden mt-3 ml-6" :class="{hidden: isHidden}">
+        <div class="text-left md:hidden mt-3 ml-6" :class="{hidden: isMobileMenuHidden}">
             <router-link v-if="isLogin()" class="block py-2" to="/logout">登出</router-link>
             <router-link v-else class="block py-2" to="/login">登入</router-link>
             <router-link class="block py-2" to="/domain">網域管理</router-link>
@@ -39,11 +39,11 @@ import {useCookie} from 'vue-cookie-next'
 export default {
   name: 'App',
   setup() {
-      const isHidden = ref(true)
+      const isMobileMenuHidden = ref(true)
       const cookie = useCookie()
 
       function showMobileMenu() {
-          isHidden.value = isHidden.value ^ true;
+          isMobileMenuHidden.value = !isMobileMenuHidden.value;
       }
 
       function isLogin() {
@@ -54,7 +54,7 @@ export default {
           }
       }
 
-      return {isHidden, showMobileMenu, isLogin}
+      return {isMobileMenuHidden, showMobileMenu, isLogin}
   }
 }
 </script>
