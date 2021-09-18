@@ -14,8 +14,9 @@
 import {useCookie} from 'vue-cookie-next'
 import {useRoute}  from 'vue-router'
 import axios from 'axios'
+import shared from "@/share/shared"
 
-let baseURL = "https://api.nycu.me"
+let baseURL = shared.getBaseURL()
 
 export default {
   name: 'home',
@@ -33,6 +34,7 @@ export default {
                   if (error.response) {
                       let statusCode = error.response.status
                       console.log(statusCode)
+                      alert("登入失敗")
                   }
               }
           )

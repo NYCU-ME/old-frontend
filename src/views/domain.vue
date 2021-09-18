@@ -8,19 +8,48 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 import state from '@/share/state'
 import config from '@/share/config'
 import domainRegister from '@/components/domainRegister.vue'
+import {useCookie} from 'vue-cookie-next'
+import axios from 'axios'
+import shared from "@/share/shared"
+
+let baseURL = shared.getBaseURL()
 
 export default {
-  name: 'domain',
-  components: {
-      domainRegister
-  },
-  setup() {
-      const {isLogin} = state;
-      if (isLogin() == false) {
-          alert("尚未登入")
-          location.replace(config.getCurrentUrl())
-      }
-  }
+    name: 'domain',
+    components: {
+        domainRegister
+    },
+    setup() {
+        const {isLogin} = state;
+        if (isLogin() == false) {
+            alert("尚未登入")
+            location.replace(config.getHomepageURL())
+        }
+
+        let cookie = useCookie()
+        let requestConfig = {
+            headers: {
+                'Authorization': "Bearer " + cookie.getCookie("token")
+            }
+        }
+        axios.get(baseURL + "/auth", requestConfig).then(
+            (result) => {
+                console.log(result)
+            }
+        ).catch(
+            (error) => {
+                if (error.response) {
+                    let statusCode = error.response.status
+                    console.log(statusCode)
+                    if (statusCode == 401) {
+                        cookie.removeCookie("token")
+                        location.replace(config.getHomepageURL())
+                    }
+                }
+            }
+        )
+
+    }
 }
 </script>
 
