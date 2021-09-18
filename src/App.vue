@@ -11,7 +11,7 @@
             </div>
 
             <div class="md:hidden flex mr-3">
-                <button @click="showMobileMenu()" class="border border-gray-400 p-1">
+                <button @click="toggleMobileMenu()" class="border border-gray-400 p-1">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
@@ -33,28 +33,13 @@
 </template>
 
 <script>
-import {ref} from "vue"
-import {useCookie} from 'vue-cookie-next'
+import state from '@/share/state'
 
 export default {
   name: 'App',
   setup() {
-      const isMobileMenuHidden = ref(true)
-      const cookie = useCookie()
-
-      function showMobileMenu() {
-          isMobileMenuHidden.value = !isMobileMenuHidden.value;
-      }
-
-      function isLogin() {
-          if (cookie.isCookieAvailable("token")) {
-              return true;
-          } else {
-              return false;
-          }
-      }
-
-      return {isMobileMenuHidden, showMobileMenu, isLogin}
+      const {toggleMobileMenu, isMobileMenuHidden, isLogin} = state;
+      return {isMobileMenuHidden, toggleMobileMenu, isLogin}
   }
 }
 </script>

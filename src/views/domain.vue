@@ -5,7 +5,8 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 
 <script>
 // @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
+import state from '@/share/state'
+import config from '@/share/config'
 import domainRegister from '@/components/domainRegister.vue'
 
 export default {
@@ -14,6 +15,11 @@ export default {
       domainRegister
   },
   setup() {
+      const {isLogin} = state;
+      if (isLogin() == false) {
+          alert("尚未登入")
+          location.replace(config.getCurrentUrl())
+      }
   }
 }
 </script>
