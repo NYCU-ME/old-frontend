@@ -1,6 +1,6 @@
 <template>
+    <domainManage :domains="domains"></domainManage>
     <domainRegister> </domainRegister>
-    <domainManage domains="domains"></domainManage>
 </template>
 
 <script>
@@ -38,6 +38,7 @@ export default {
         axios.get(baseURL + "/auth", requestConfig).then(
             (result) => {
                 domains = result.data["domains"]
+                console.log(result.data)
             }
         ).catch(
             (error) => {
