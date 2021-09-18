@@ -3,20 +3,46 @@
         <div v-for="item in domains" :key='item["id"]'>
             {{item["domain"]}}
             {{item["expDate"]}}
-        </div>        
+        </div>
     </div>
-
-    Lorem dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 </template>
 
 <script>
-// @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
+import {reactive} from "vue"
+import axios from 'axios'
+import {useCookie} from 'vue-cookie-next'
+import shared from "@/share/shared"
+import config from '@/share/config'
+
+let baseURL = shared.getBaseURL()
 
 export default {
     name: 'domainManage',
-    props: ['domains'],
-    setup() {
+    async setup() {
+        let domains = []
+
+        let cookie = useCookie()
+        let requestConfig = {
+            headers: {
+                'Authorization': "Bearer " + cookie.getCookie("token")
+            }
+        }
+
+        try {
+            let result = await axios.get(baseURL + "/auth", requestConfig)
+            domains = result.data.domains
+            domains = reactive(domains)
+        } catch(error) {
+            if (error.response) {
+                let statusCode = error.response.status
+                console.log(statusCode)
+                if (statusCode == 401) {
+                    cookie.removeCookie("token")
+                    location.replace(config.getHomepageURL())
+                }
+            }
+        }
+        return {domains}
     }
 }
 </script>

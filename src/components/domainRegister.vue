@@ -14,13 +14,42 @@
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
 import {ref} from "vue"
+import {useCookie} from 'vue-cookie-next'
+import axios from 'axios'
+import config from "@/share/config"
+import shared from "@/share/shared"
+
+let baseURL = shared.getBaseURL()
 
 export default {
   name: 'domainRegister',
   setup() {
+      const cookie = useCookie()
       const customURL = ref("")
+
       const sent = async function() {
-          console.log(customURL.value);
+          let requestConfig = {
+              headers: {
+                  'Authorization': "Bearer " + cookie.getCookie("token")
+              }
+          }
+
+          try {
+              let result = await axios.post(baseURL + "/ddns/me/nycu/" + customURL.value, {}, requestConfig)
+              console.log(result)
+              location.replace(config.getHomepageURL() + "/domain")
+          } catch(error) {
+              if (error.response) {
+                  let statusCode = error.response.status
+                  console.log(statusCode)
+                  if (statusCode == 401) {
+                      cookie.removeCookie("token")
+                      location.replace(config.getHomepageURL())
+                  } else if (statusCode == 403) {
+                      alert(error.response.data.msg)
+                  }
+              }
+          }
       }
 
       return {customURL, sent}
