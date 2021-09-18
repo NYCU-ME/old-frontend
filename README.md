@@ -29,7 +29,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 paste some code like following
 
-```
+```javascript=
 let currentUrl = "http://localhost:8080"
 
 export default {
