@@ -15,6 +15,7 @@ import {useCookie} from 'vue-cookie-next'
 import {useRoute}  from 'vue-router'
 import axios from 'axios'
 import shared from "@/share/shared"
+import config from "@/share/config"
 
 let baseURL = shared.getBaseURL()
 
@@ -28,6 +29,7 @@ export default {
             axios.get(baseURL + "/oauth/" + route.query.code).then(
                 (result) => {
                     cookie.setCookie("token", result.data.token)
+                    location.replace(config.getHomepageURL())
                 }
             ).catch(
                 (error) => {
