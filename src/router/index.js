@@ -2,8 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import home from '../views/home.vue'
 import login from '../views/login.vue'
 import logout from '../views/logout.vue'
-import domainRegister from '../views/domainRegister.vue'
-import domainManage from '../views/domainManage.vue'
+import domain from '../views/domain.vue'
 
 const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
@@ -17,16 +16,12 @@ const router = createRouter({
             component: login
         },
         {
-            path: '/domainRegister',
-            component: domainRegister
-        },
-        {
-            path: '/domainManage',
-            component: domainManage
-        },
-        {
             path: '/logout',
             component: logout
+        },
+        {
+            path: '/domain',
+            component: domain
         }
     ]
 })
