@@ -1,8 +1,14 @@
 <template>
-    <div>
-        <div v-for="item in domains" :key='item["id"]'>
-            {{item["domain"]}}
-            {{item["expDate"]}}
+    <div class="flex flex-wrap mt-4 justify-center">
+        <div class="card p-4 mx-3 mb-3 bg-white shadow-xl w-auto md:w-3/12" v-for="item in domains" :key="item['id']">
+            <div class="text-center mt-2 font-medium text-2xl md:text-3xl">{{item['domain']}}</div>
+            <div class="text-center font-normal text-base md:text-lg">{{item['expDate']}}</div>
+            <div class="flex p-2 justify-center">
+                <button class="p-2 mr-2 rounded bg-blue-500 hover:bg-blue-700 font-bold text-white text-center">
+                    Edit
+                </button>
+                <button class="p-2 rounded bg-red-500 hover:bg-red-700 font-bold text-white">Renew</button>
+            </div>
         </div>
     </div>
 </template>

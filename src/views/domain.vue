@@ -1,4 +1,5 @@
 <template>
+    <domainRegister> </domainRegister>
     <Suspense>
         <template #default>
             <domainManage></domainManage>
@@ -6,7 +7,6 @@
         <template #fallback> Loading...</template>
     </Suspense>
 
-    <domainRegister> </domainRegister>
 </template>
 
 <script>
