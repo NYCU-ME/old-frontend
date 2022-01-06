@@ -1,10 +1,16 @@
 <template>
-    <domainRegister> </domainRegister>
+    <Suspense>
+        <template #default>
+            <domainRegister></domainRegister>
+        </template>
+        <template #fallback> Loading... </template>
+    </Suspense>
+
     <Suspense>
         <template #default>
             <domainManage></domainManage>
         </template>
-        <template #fallback> Loading...</template>
+        <template #fallback> Loading... </template>
     </Suspense>
 
 </template>
