@@ -22,8 +22,8 @@ import shared from "@/share/shared"
 let baseURL = shared.getBaseURL()
 
 export default {
-  name: 'domainRegister',
-  setup() {
+    name: 'domainRegister',
+    setup() {
       const cookie = useCookie()
       const customURL = ref("")
 

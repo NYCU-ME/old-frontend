@@ -16,7 +16,6 @@ import config from '@/share/config'
 import domainRegister from '@/components/domainRegister.vue'
 import domainManage from '@/components/domainManage.vue'
 
-
 export default {
     name: 'domain',
     components: {
