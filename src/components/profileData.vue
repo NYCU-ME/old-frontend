@@ -1,8 +1,8 @@
 <template>
     <div class="md:w-2/4 w-3/4 md:p-2 p-1 m-2 border-4 border-indigo-500/50 text-center">
         <p class="md:text-2xl text-xl bg-gray-400">基本資訊</p>
-        學號 <div class="md:text-2xl text-sm">{{domains["username"]}}</div>
-        信箱 <div class="md:text-2xl text-sm">{{domains["email"]}}</div>
+        學號 <div class="md:text-2xl text-sm">{{profile["username"]}}</div>
+        信箱 <div class="md:text-2xl text-sm">{{profile["email"]}}</div>
     </div>
 </template>
 
@@ -19,7 +19,7 @@ export default {
     name: 'profileData',
     async setup() {
         const cookie = useCookie()
-        let domains = ""
+        let profile = ""
 
         let requestConfig = {
             headers: {
@@ -29,7 +29,7 @@ export default {
 
         await axios.get(baseURL + "/auth", requestConfig)
         .then(response => {
-            domains = reactive(response.data)
+            profile = reactive(response.data)
         })
         .catch(error => {
             if (error.response) {
@@ -42,7 +42,7 @@ export default {
             }
         })
 
-        return {domains}
+        return {profile}
     }
 }
 </script>
