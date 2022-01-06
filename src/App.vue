@@ -5,8 +5,9 @@
                 <router-link class="ml-6 text-2xl text-white align-middle md:mr-3 lg:py-1" to="/">NYCU.ME</router-link>
             </div>
             <div class="md:flex hidden">
-                <router-link class="md:ml-3 lg:py-1" to="/domain">網域管理</router-link>
+                <router-link v-if="isLogin()" class="md:ml-3 lg:py-1" to="/domain">網域管理</router-link>
                 <router-link v-if="isLogin()" class="md:ml-3 mr-3 lg:py-1" to="/profile">個人資訊</router-link>
+                <router-link v-if="isLogin()" class="md:ml-3 mr-3 lg:py-1" to="/logout">登出</router-link>
                 <router-link v-else class="md:ml-3 mr-3 lg:py-1" to="/login">登入</router-link>
             </div>
 
@@ -21,9 +22,10 @@
         </div>
 
         <div class="text-left md:hidden mt-3 ml-6" :class="{hidden: isMobileMenuHidden}">
+            <router-link v-if="isLogin()" class="block py-2" to="/domain">網域管理</router-link>
             <router-link v-if="isLogin()" class="block py-2" to="/profile">個人資訊</router-link>
+            <router-link v-if="isLogin()" class="block py-2" to="/logout">登出</router-link>
             <router-link v-else class="block py-2" to="/login">登入</router-link>
-            <router-link class="block py-2" to="/domain">網域管理</router-link>
         </div>
     </div>
 
