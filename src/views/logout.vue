@@ -1,6 +1,5 @@
 <script>
 // @ is an alias to /src
-import shared from '@/share/shared'
 import {useCookie} from "vue-cookie-next"
 import config from "@/share/config"
 
