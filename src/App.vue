@@ -7,7 +7,7 @@
             <div class="md:flex hidden">
                 <router-link v-if="isLogin()" class="md:ml-3 lg:py-1" to="/domain">網域管理</router-link>
                 <router-link v-if="isLogin()" class="md:ml-3 mr-3 lg:py-1" to="/profile">個人資訊</router-link>
-                <router-link v-if="isLogin()" class="md:ml-3 mr-3 lg:py-1" to="/logout">登出</router-link>
+                <router-link v-if="isLogin()" class="mr-3 lg:py-1" to="/logout">登出</router-link>
                 <router-link v-else class="md:ml-3 mr-3 lg:py-1" to="/login">登入</router-link>
             </div>
 
