@@ -1,27 +1,31 @@
 <template>
     <div class="absolute top-13 left-0">
-        <button class="bg-blue-500 hover:bg-blue-700 m-2 text-white font-bold py-2 px-2 rounded-full">
+        <button class="bg-blue-500 hover:bg-blue-700 m-2 text-white font-bold py-2 px-2 rounded-full" @click="registerForm = !registerForm">
             <img src="@/assets/plus-solid.svg" class="align-middle inline" width="20" height="20"/> &nbsp;<div class="align-middle inline">註冊新網域</div>
         </button>
     </div>
 
 
-    <!--
-    <div class="text-center">
-        <div class="text-md lg:text-2xl mb-4">請於下欄中輸入您想註冊的網域<br />系統會為您確認是否可註冊</div>
-        <div class="text-md md:text-2xl lg:text-3xl font-bold mb-4">
-            <input class="p-2 w-54 border border-gray-400" type="text" v-model.trim="customURL"> .nycu.me
+    <transition>
+        <div v-if="registerForm" class="absolute z-50 left-1/4 top-1/3 md:left-1/3 w-fit shadow-lg rounded-lg">
+            <div class="bg-gray-700 py-2 font-medium text-white text-xl md:text-2xl text-center w-full rounded-t-lg">新增網域</div>
+            <div class="px-4 py-4 bg-white w-full text-md md:text-xl">
+                請於下方欄位輸入你想申請的網域 <br />
+                <input class="text-black m-auto"/> .nycu.me
+            </div>
+            <div class="flex flex-wrap w-full bg-white rounded-b-lg px-2 py-2">
+                <button class="text-white py-1 px-2 block bg-blue-500 hover:bg-blue-700 m-auto" @click="sent">送出</button>
+                <button class="text-black py-1 px-2 block hover:bg-red-500 m-auto" @click="registerForm = !registerForm">關閉</button>
+            </div>
+
         </div>
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" @click="sent()">
-          送出
-        </button>
-    </div>
-    -->
+    </transition>
+
+    <div v-if="registerForm" @click="registerForm = !registerForm" class="opacity-50 bg-gray-600 absolute inset-0 w-full"></div>
 </template>
 
 <script>
 // @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
 import {ref} from "vue"
 import {useCookie} from 'vue-cookie-next'
 import axios from 'axios'
@@ -35,6 +39,7 @@ export default {
     setup() {
       const cookie = useCookie()
       const customURL = ref("")
+      const registerForm = ref(false)
 
       const sent = async function() {
           let requestConfig = {
@@ -62,7 +67,7 @@ export default {
           }
       }
 
-      return {customURL, sent}
+      return {customURL, sent, registerForm}
   }
 }
 </script>
@@ -70,5 +75,26 @@ export default {
 <style>
 input {
     background-color: #f2f0f0;
+}
+
+.v-enter-active, .v-leave-active {
+    transition: all 0.7s ease;
+}
+
+.v-enter-from, .v-leave-to {
+    opacity: 0;
+}
+
+.v-enter-from {
+    transform: translateY(-300%);
+}
+
+.v-leave-to {
+    transform: translateY(-300%);
+}
+
+
+.v-enter-to, .v-leave-from {
+    opacity: 1;
 }
 </style>
