@@ -1,6 +1,6 @@
 <template>
-    <div class="md:w-2/4 w-3/4 md:p-2 p-1 m-2 border-4 border-indigo-500/50 text-center">
-        <p class="md:text-2xl text-xl bg-gray-400">基本資訊</p>
+    <div class="w-min md:p-2 p-1 m-2 shadow text-center">
+        <p class="md:text-2xl text-xl bg-gray-500 text-white">基本資訊</p>
         學號 <div class="md:text-2xl text-sm">{{profile["username"]}}</div>
         信箱 <div class="md:text-2xl text-sm">{{profile["email"]}}</div>
     </div>
