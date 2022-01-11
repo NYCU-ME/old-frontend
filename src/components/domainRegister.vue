@@ -5,21 +5,23 @@
         </button>
     </div>
 
+    <div class="absolute top-0 w-full">
+        <transition>
+            <div v-if="registerForm"  class="relative top-64 z-50 mx-auto p-3 w-72 md:w-96 rounded-lg">
+                <div class="bg-gray-700 py-2 font-medium text-white text-xl md:text-2xl text-center w-full rounded-t-lg">新增網域</div>
 
-    <transition>
-        <div v-if="registerForm" class="absolute z-50 left-1/4 top-1/3 md:left-1/3 w-fit shadow-lg rounded-lg">
-            <div class="bg-gray-700 py-2 font-medium text-white text-xl md:text-2xl text-center w-full rounded-t-lg">新增網域</div>
-            <div class="px-4 py-4 bg-white w-full text-md md:text-xl">
-                請於下方欄位輸入你想申請的網域 <br />
-                <input class="text-black m-auto"/> .nycu.me
-            </div>
-            <div class="flex flex-wrap w-full bg-white rounded-b-lg px-2 py-2">
-                <button class="text-white py-1 px-2 block bg-blue-500 hover:bg-blue-700 m-auto" @click="sent">送出</button>
-                <button class="text-black py-1 px-2 block hover:bg-red-500 m-auto" @click="registerForm = !registerForm">關閉</button>
-            </div>
+                <div class="py-2 px-4 bg-white w-full text-center text-md md:text-xl">
+                    請於下方欄位輸入你想申請的網域 <br />
+                    <input class="text-black m-auto" v-model.trim="customURL"/> .nycu.me
+                </div>
+                <div class="flex flex-wrap w-full bg-white rounded-b-lg px-2 py-2">
+                    <button class="text-white py-1 px-2 block bg-blue-500 hover:bg-blue-700 m-auto" @click="sent">送出</button>
+                    <button class="text-black py-1 px-2 block hover:bg-red-500 m-auto" @click="registerForm = !registerForm">關閉</button>
+                </div>
 
-        </div>
-    </transition>
+            </div>
+        </transition>
+    </div>
 
     <div v-if="registerForm" @click="registerForm = !registerForm" class="opacity-50 bg-gray-600 absolute inset-0 w-full"></div>
 </template>
@@ -49,7 +51,7 @@ export default {
           }
 
           try {
-              let result = await axios.post(baseURL + "/ddns/me/nycu/" + customURL.value, {}, requestConfig)
+              let result = await axios.post(baseURL + "/domains/me/nycu/" + customURL.value, {}, requestConfig)
               console.log(result)
               location.replace(config.getHomepageURL() + "/domain")
           } catch(error) {
@@ -78,7 +80,7 @@ input {
 }
 
 .v-enter-active, .v-leave-active {
-    transition: all 0.7s ease;
+    transition: all 0.6s ease;
 }
 
 .v-enter-from, .v-leave-to {
