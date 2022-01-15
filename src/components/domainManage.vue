@@ -120,7 +120,7 @@
                                         <img src="@/assets/trash-alt-solid.svg" class="align-middle inline mx-auto" width="25" height="25" @click="releaseDomain(domain['id'])"/>
                                     </td>
                                     <td class="px-4 py-3 whitespace-nowrap text-md font-medium">
-                                        <img v-if="needRenew(domain['id'])" @click="renew(domain['id'])" src="@/assets/renew.png" class="mx-auto align-middle inline" width="30" height="30"/>
+                                        <img v-if="needRenew(domain['id'])" @click="renew(domain['id'])" src="@/assets/sync-solid.svg" class="mx-auto align-middle inline" width="30" height="30"/>
                                     </td>
                                 </tr>
                             </template>
