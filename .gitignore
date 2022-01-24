@@ -2,3 +2,4 @@
 node_modules
 vue.config.js
 config.js
+shared.js

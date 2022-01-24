@@ -1,0 +1,16 @@
+// clientIndex : The index of application which issue by nycu oauth
+// baseURL : The backend API url of the project
+
+let clientIndex = ""
+let loginURL = "https://id.nycu.edu.tw/o/authorize/?client_id=" + clientIndex + "&response_type=code&scope=profile"
+let baseURL = ""
+
+
+export default {
+    getLoginURL: function() {
+        return loginURL
+    },
+    getBaseURL: function() {
+        return baseURL
+    }
+}
