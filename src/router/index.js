@@ -4,6 +4,7 @@ import login from '../views/login.vue'
 import logout from '../views/logout.vue'
 import profile from '../views/profile.vue'
 import domain from '../views/domain.vue'
+import about from '../views/about.vue'
 
 const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
@@ -28,6 +29,10 @@ const router = createRouter({
             path: '/logout',
             component: logout
         },
+        {
+            path: '/about',
+            component: about
+        }
     ]
 })
 
