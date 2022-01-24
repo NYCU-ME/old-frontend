@@ -25,18 +25,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Some Configuration
 
-### src/share/config.js
+- src/share/config.js
+- src/share/shared.js
 
-paste the code like following
-
-```javascript
-let homepageURL = "http://localhost:8080"
-
-export default {
-    getHomepageURL: function() {
-        return homepageURL
-    }
-}
-```
-
-And change homepageURL variable(ex: https://www.nycu.me)
+You can check the .example files to know how to write these files.
