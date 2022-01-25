@@ -7,7 +7,7 @@ import domain from '../views/domain.vue'
 import about from '../views/about.vue'
 
 const router = createRouter({
-    history: createWebHistory(process.env.BASE_URL),
+    history: createWebHistory(),
     routes :  [
         {
             path: '/',
