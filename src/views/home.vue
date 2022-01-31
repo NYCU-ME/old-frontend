@@ -1,10 +1,32 @@
 <template>
-<div class="bg-white w-11/12 m-auto">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+<div class="bg-white w-11/12 text-center mx-auto">
+    <div class="text-4xl font-medium mb-6">使用說明</div>
+    <div class="hidden md:flex md:flex-wrap md:w-3/4 md:mx-auto">
+        <div class="border-2 hover:shadow-lg p-2 rounded-xl mx-auto w-1/3">
+            <div class="font-medium text-2xl">新增網域</div>
+            點選「網域管理」最左邊的藍色按鈕「註冊新網域」後，在欄位中輸入想申請的網域按送出後即可
+        </div>
+        <div class="border-2 hover:shadow-lg p-2 rounded-xl mx-auto w-1/3">
+            <div class="font-medium text-2xl">刪除網域</div>
+            在申請網域後，可以在「網域管理」的頁面中看到自己所申請的網域名稱、到期日等，按下刪除的圖示即可完成刪除操作
+            <img class="mx-auto" src="@/assets/delete.png" />
+        </div>
+    </div>
 
+    <div class="md:hidden">
+        <div class="my-2 border-2 hover:shadow-lg p-2 rounded-xl mx-auto w-2/3">
+            <div class="font-medium text-xl">新增網域</div>
+            <div class="text-md">
+                點選「網域管理」最左邊的藍色按鈕「註冊新網域」後，在欄位中輸入想申請的網域按送出後即可
+            </div>
+        </div>
+
+        <div class="my-2 border-2 hover:shadow-lg p-2 rounded-xl mx-auto w-2/3">
+            <div class="font-medium text-2xl">刪除網域</div>
+            在申請網域後，可以在「網域管理」的頁面中看到自己所申請的網域名稱、到期日等，按下刪除的圖示即可完成刪除操作
+            <img class="mx-auto" src="@/assets/delete.png" />
+        </div>
+    </div>
 </div>
 </template>
 <script>
