@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto py-24 px-4 flex justify-center">
+    <div class="container mx-auto py-24 flex justify-center">
         <div class="grid gap-y-16 gap-x-8 grid-cols-[fit-content(100%)] md:grid-cols-[fit-content(100%)_fit-content(100%)] lg:grid-cols-[fit-content(100%)_fit-content(100%)_fit-content(100%)]">
             <div class="py-8 px-4 border rounded shadow-xl aspect-[3/4] flex items-center">
                 <div>
