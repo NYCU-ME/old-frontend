@@ -30,8 +30,6 @@
             <router-link v-else class="block py-2" to="/login">登入</router-link>
         </div>
     </div>
-
-    <div class="mb-4"></div>
     <router-view/>
 
 </template>

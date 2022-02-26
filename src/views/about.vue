@@ -1,44 +1,67 @@
 <template>
-    <template class="w-3/4 mx-auto flex flex-wrap">
-        <div class="mx-auto my-2 border-4 text-center p-2 border-black rounded-xl">
-            <img class="mx-auto" src="@/assets/contact/yojahuang.jpg" width="280" />
-            <div class="text-3xl font-medium">Yoja Huang</div>
-            <div class="bg-blue-600 mx-auto text-white font-bold rounded-xl w-min py-1 px-2">Frontend</div>
-            <a class="text-lg" href="https://github.com/Yojahuang">
-                <p class="m-2 align-middle inline">https://github.com/Yojahuang</p>
-            </a>
-        </div>
-
-        <div class="mx-auto my-2 border-4 text-center p-2 border-black rounded-xl">
-            <img class="mx-auto" src="@/assets/contact/SiriusKoan.jpg" width="280" />
-            <div class="text-3xl font-medium">Sirius Koan</div>
-            <div class="bg-blue-600 mx-auto text-white font-bold rounded-xl w-min py-1 px-2">DevOps</div>
-            <a class="text-lg" href="https://github.com/SiriusKoan">
-                <p class="m-2 align-middle inline">https://github.com/SiriusKoan</p>
-            </a>
-        </div>
-
-        <div class="mx-auto my-2 border-4 text-center p-2 border-black rounded-xl">
-            <img class="mx-auto" src="@/assets/contact/linlee.jpeg" width="280" />
-            <div class="text-3xl font-medium">Lin Lee</div>
-            <div class="bg-blue-600 mx-auto text-white font-bold rounded-xl w-min py-1 px-2">Backend</div>
-            <a class="text-lg" href="https://linlee.cat">
-                <p class="m-2 align-middle inline">https://linlee.cat</p>
-            </a>
-        </div>
-
-        <div class="mx-auto my-2 border-4 text-center p-2 border-black rounded-xl">
-            <img class="mx-auto" src="@/assets/contact/wdzeng.jpeg" width="280" />
-            <div class="text-3xl font-medium">雙曲線</div>
-            <div class="flex flex-wrap w-2/3 mx-auto">
-                <div class="bg-red-600 mx-auto text-white font-bold rounded-xl w-min py-1 px-2">Sponsor</div>
+    <div class="container mx-auto py-24 flex justify-center">
+        <div class="grid gap-y-16 gap-x-8 grid-cols-[fit-content(100%)] md:grid-cols-[fit-content(100%)_fit-content(100%)] lg:grid-cols-[fit-content(100%)_fit-content(100%)_fit-content(100%)]">
+            <div class="about-card">
+                <div>
+                    <div class="profile-image-wrapper">
+                        <img src="@/assets/contact/yojahuang.jpg" />
+                    </div>
+                    <h2 class="profile-name">Yoja Huang</h2>
+                    <p class="intro-wrapper">
+                        <span class="badge bg-blue-500">Frontend</span>
+                        <a class="link" href="https://github.com/Yojahuang" target="_blank" rel="noopener noreferrer">
+                            <fa icon="link" />
+                        </a>
+                    </p>
+                </div>
             </div>
-            <a class="text-lg" href="https://github.com/wdzeng">
-                <p class="m-2 align-middle inline">https://github.com/wdzeng</p>
-            </a>
-        </div>
-    </template>
 
+            <div class="about-card">
+                <div>
+                    <div class="profile-image-wrapper">
+                        <img src="@/assets/contact/SiriusKoan.jpg" />
+                    </div>
+                    <h2 class="profile-name">Sirius Koan</h2>
+                    <p class="intro-wrapper">
+                        <span class="badge bg-blue-500">DevOps</span>
+                        <a class="link" href="https://github.com/SiriusKoan" target="_blank" rel="noopener noreferrer">
+                            <fa icon="link" />
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="about-card">
+                <div>
+                    <div class="profile-image-wrapper">
+                        <img src="@/assets/contact/linlee.jpeg" />
+                    </div>
+                    <h2 class="profile-name">Lin Lee</h2>
+                    <p class="intro-wrapper">
+                        <span class="badge bg-blue-500">Backend</span>
+                        <a class="link" href="https://linlee.cat" target="_blank" rel="noopener noreferrer">
+                            <fa icon="link" />
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="about-card">
+                <div>
+                    <div class="profile-image-wrapper">
+                        <img src="@/assets/contact/wdzeng.jpeg" />
+                    </div>
+                    <h2 class="profile-name">Hyperbola</h2>
+                    <p class="intro-wrapper">
+                        <span class="badge bg-red-500">Sponsor</span>
+                        <a class="link" href="https://github.com/wdzeng" target="_blank" rel="noopener noreferrer">
+                            <fa icon="link" />
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -51,3 +74,33 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+.about-card {
+    @apply py-8 px-4 border rounded shadow-xl aspect-[3/4] flex items-center;
+
+    .profile-image-wrapper {
+        @apply flex justify-center mb-4 shadow-xl;
+
+        img {
+            @apply w-[280px] h-[280px] object-cover;
+        }
+    }
+
+    .profile-name {
+        @apply text-3xl font-medium text-center mb-4;
+    }
+
+    .intro-wrapper {
+        @apply flex justify-center items-stretch;
+
+        .badge {
+            @apply inline-flex justify-center w-24 rounded text-white mr-2 cursor-pointer;
+        }
+
+        .link {
+            @apply inline-flex items-center text-sm text-gray-700 hover:text-black;
+        }
+    }
+}
+</style>
