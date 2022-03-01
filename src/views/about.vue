@@ -60,6 +60,21 @@
                     </p>
                 </div>
             </div>
+
+            <div class="about-card">
+                <div>
+                    <div class="profile-image-wrapper">
+                        <img src="@/assets/contact/cycatz.jpg" />
+                    </div>
+                    <h2 class="profile-name">Cycatz</h2>
+                    <p class="intro-wrapper">
+                        <span class="badge bg-red-500">Windbag</span>
+                        <a class="link" href="https://blog.staque.xyz" target="_blank" rel="noopener noreferrer">
+                            <fa icon="link" />
+                        </a>
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </template>
