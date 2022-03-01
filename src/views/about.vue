@@ -1,6 +1,6 @@
 <template>
-    <div class="container mx-auto py-24 flex justify-center">
-        <div class="grid gap-y-16 gap-x-8 grid-cols-[fit-content(100%)] md:grid-cols-[fit-content(100%)_fit-content(100%)] lg:grid-cols-[fit-content(100%)_fit-content(100%)_fit-content(100%)]">
+    <div class="container mx-auto py-24 px-8 flex justify-center">
+        <div class="grid gap-y-16 gap-x-16 grid-cols-[fit-content(100%)] md:grid-cols-[fit-content(100%)_fit-content(100%)] lg:grid-cols-[fit-content(100%)_fit-content(100%)_fit-content(100%)]">
             <div class="about-card">
                 <div>
                     <div class="profile-image-wrapper">
@@ -64,17 +64,6 @@
     </div>
 </template>
 
-<script>
-// @ is an alias to /src
-
-export default {
-    name: 'about',
-    setup() {
-
-    }
-}
-</script>
-
 <style lang="scss">
 .about-card {
     @apply py-8 px-4 border rounded shadow-xl aspect-[3/4] flex items-center;
@@ -83,7 +72,7 @@ export default {
         @apply flex justify-center mb-4 shadow-xl;
 
         img {
-            @apply w-[280px] h-[280px] object-cover;
+            @apply w-[200px] md:w-[280px] aspect-square object-cover;
         }
     }
 
@@ -99,7 +88,7 @@ export default {
         }
 
         .link {
-            @apply inline-flex items-center text-sm text-gray-700 hover:text-black;
+            @apply inline-flex items-center text-sm text-gray-700 hover:text-black text-xl;
         }
     }
 }
