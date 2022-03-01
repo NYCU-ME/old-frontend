@@ -1,11 +1,10 @@
 <script>
 // @ is an alias to /src
-import shared from '@/share/shared'
 
 export default {
     name: 'login',
     setup() {
-        location.replace(shared.getLoginURL())
+        location.replace(import.meta.env.VITE_LOGIN_URL)
     }
 }
 </script>

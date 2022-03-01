@@ -8,12 +8,10 @@
 
 <script>
 import {useCookie} from "vue-cookie-next"
-import config from "@/share/config"
 import {reactive} from "vue"
 import axios from 'axios'
-import shared from "@/share/shared"
 
-let baseURL = shared.getBaseURL()
+let baseURL = import.meta.env.VITE_BASE_URL
 
 export default {
     name: 'profileData',

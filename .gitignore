@@ -2,3 +2,6 @@
 node_modules
 config.js
 shared.js
+.env.local
+.env.*.local
+dist

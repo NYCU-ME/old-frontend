@@ -18,7 +18,6 @@
 <script>
 // @ is an alias to /src
 import state from '@/share/state'
-import config from '@/share/config'
 import domainRegister from '@/components/domainRegister.vue'
 import domainManage from '@/components/domainManage.vue'
 
@@ -32,7 +31,7 @@ export default {
         const {isLogin} = state;
         if (isLogin() == false) {
             alert("尚未登入")
-            location.replace(config.getHomepageURL())
+            location.replace(import.meta.env.VITE_HOMEPAGE_URL)
         }
     }
 }

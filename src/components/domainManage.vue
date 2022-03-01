@@ -137,11 +137,9 @@
 import {reactive, ref} from "vue"
 import axios from 'axios'
 import {useCookie} from 'vue-cookie-next'
-import shared from "@/share/shared"
-import config from '@/share/config'
 import { useRoute } from 'vue-router'
 
-let baseURL = shared.getBaseURL()
+let baseURL = import.meta.env.VITE_BASE_URL
 
 export default {
     name: 'domainManage',
@@ -191,7 +189,7 @@ export default {
         }
 
         function redirect(idx) {
-            let url = config.getHomepageURL() + "/domain?idx=" + idx
+            let url = import.meta.env.VITE_HOMEPAGE_URL + "/domain?idx=" + idx
             window.location.replace(url)
         }
 
@@ -216,7 +214,7 @@ export default {
                 console.log(statusCode)
                 if (statusCode == 401) {
                     cookie.removeCookie("token")
-                    location.replace(config.getHomepageURL())
+                    location.replace(import.meta.env.VITE_HOMEPAGE_URL)
                 }
             }
         }
@@ -234,7 +232,7 @@ export default {
                     try {
                         let result = await axios.delete(currentURL, requestConfig)
                         console.log(result)
-                        location.replace(config.getHomepageURL() + "/domain")
+                        location.replace(import.meta.env.VITE_HOMEPAGE_URL + "/domain")
                     } catch(error) {
                         if (error.response) {
                             let statusCode = error.response.status
@@ -242,7 +240,7 @@ export default {
                             if (statusCode == 401) {
                                 cookie.removeCookie("token")
                                 alert("Not logged\n")
-                                location.replace(config.getHomepageURL())
+                                location.replace(import.meta.env.VITE_HOMEPAGE_URL)
                             } else if (statusCode == 403) {
                                 alert(error.response.data.msg)
                             }
@@ -265,7 +263,7 @@ export default {
                     try {
                         let result = await axios.post(currentURL, {}, requestConfig)
                         console.log(result)
-                        location.replace(config.getHomepageURL() + "/domain")
+                        location.replace(import.meta.env.VITE_HOMEPAGE_URL + "/domain")
                     } catch (error) {
                         if (error.response) {
                             let statusCode = error.response.status
@@ -273,7 +271,7 @@ export default {
                             if (statusCode == 401) {
                                 cookie.removeCookie("token")
                                 alert("Not logged\n")
-                                location.replace(config.getHomepageURL())
+                                location.replace(import.meta.env.VITE_HOMEPAGE_URL)
                             } else if (statusCode == 403) {
                                 alert(error.response.data.msg)
                             }
@@ -322,7 +320,7 @@ export default {
                     if (statusCode == 401) {
                         cookie.removeCookie("token")
                         alert("Not logged\n")
-                        location.replace(config.getHomepageURL())
+                        location.replace(import.meta.env.VITE_HOMEPAGE_URL)
                     } else if (statusCode == 403) {
                         alert(error.response.data.msg)
                     }
@@ -353,7 +351,7 @@ export default {
                     if (statusCode == 401) {
                         cookie.removeCookie("token")
                         alert("Not logged\n")
-                        location.replace(config.getHomepageURL())
+                        location.replace(import.meta.env.VITE_HOMEPAGE_URL)
                     } else if (statusCode == 403) {
                         alert(error.response.data.msg)
                     }

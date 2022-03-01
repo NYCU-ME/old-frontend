@@ -31,10 +31,8 @@
 import {ref} from "vue"
 import {useCookie} from 'vue-cookie-next'
 import axios from 'axios'
-import config from "@/share/config"
-import shared from "@/share/shared"
 
-let baseURL = shared.getBaseURL()
+let baseURL = import.meta.env.VITE_BASE_URL
 
 export default {
     name: 'domainRegister',
@@ -53,7 +51,7 @@ export default {
           try {
               let result = await axios.post(baseURL + "/domains/me/nycu/" + customURL.value, {}, requestConfig)
               console.log(result)
-              location.replace(config.getHomepageURL() + "/domain")
+              location.replace(import.meta.env.VITE_HOMEPAGE_URL + "/domain")
           } catch(error) {
               if (error.response) {
                   let statusCode = error.response.status
@@ -61,7 +59,7 @@ export default {
                   if (statusCode == 401) {
                       cookie.removeCookie("token")
                       alert("Not logged\n")
-                      location.replace(config.getHomepageURL())
+                      location.replace(import.meta.env.VITE_HOMEPAGE_URL)
                   } else if (statusCode == 403) {
                       alert(error.response.data.msg)
                   }
