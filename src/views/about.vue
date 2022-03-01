@@ -72,7 +72,7 @@
         @apply flex justify-center mb-4 shadow-xl;
 
         img {
-            @apply w-[200px] md:w-[280px] aspect-square object-cover;
+            @apply w-[200px] xl:w-[280px] aspect-square object-cover;
         }
     }
 
