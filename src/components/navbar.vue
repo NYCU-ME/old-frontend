@@ -20,25 +20,25 @@
         <ul class="navs mt-2 md:mt-0 md:flex gap-x-6" :class="{ hidden: isMobileMenuHidden }">
             <li v-if="isLogin()" class="py-1">
                 <router-link to="/domain">
-                    <fa icon="gear" class="mr-1" />網域管理
+                    <fa icon="gear" class="mr-1 inline-block w-6" />網域管理
                 </router-link>
             </li>
             <li v-if="isLogin()" class="py-1">
                 <router-link to="/profile">
-                    <fa icon="user" class="mr-1" />個人資訊
+                    <fa icon="user" class="mr-1 inline-block w-6" />個人資訊
                 </router-link>
             </li>
             <li class="py-1">
                 <router-link to="/about">
-                    <fa icon="user-group" class="mr-1" />關於我們
+                    <fa icon="user-group" class="mr-1 inline-block w-6" />關於我們
                 </router-link>
             </li>
             <li class="py-1">
                 <router-link v-if="isLogin()" to="/logout">
-                    <fa icon="sign-out" class="mr-1" />登出
+                    <fa icon="sign-out" class="mr-1 inline-block w-6" />登出
                 </router-link>
                 <router-link v-else to="/login">
-                    <fa icon="sign-in" class="mr-1" />登入
+                    <fa icon="sign-in" class="mr-1 inline-block w-6" />登入
                 </router-link>
             </li>
         </ul>
