@@ -49,12 +49,12 @@
             <div class="about-card">
                 <div>
                     <div class="profile-image-wrapper">
-                        <img src="@/assets/contact/wdzeng.jpeg" />
+                        <img src="@/assets/contact/cycatz.jpg" />
                     </div>
-                    <h2 class="profile-name">Hyperbola</h2>
+                    <h2 class="profile-name">Cycatz</h2>
                     <p class="intro-wrapper">
-                        <span class="badge bg-red-500">Sponsor</span>
-                        <a class="link" href="https://github.com/wdzeng" target="_blank" rel="noopener noreferrer">
+                        <span class="badge bg-red-500">Backend</span>
+                        <a class="link" href="https://blog.staque.xyz" target="_blank" rel="noopener noreferrer">
                             <fa icon="link" />
                         </a>
                     </p>
@@ -64,12 +64,12 @@
             <div class="about-card">
                 <div>
                     <div class="profile-image-wrapper">
-                        <img src="@/assets/contact/cycatz.jpg" />
+                        <img src="@/assets/contact/wdzeng.jpeg" />
                     </div>
-                    <h2 class="profile-name">Cycatz</h2>
+                    <h2 class="profile-name">Hyperbola</h2>
                     <p class="intro-wrapper">
-                        <span class="badge bg-red-500">Windbag</span>
-                        <a class="link" href="https://blog.staque.xyz" target="_blank" rel="noopener noreferrer">
+                        <span class="badge bg-red-500">Sponsor</span>
+                        <a class="link" href="https://github.com/wdzeng" target="_blank" rel="noopener noreferrer">
                             <fa icon="link" />
                         </a>
                     </p>
