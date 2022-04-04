@@ -31,4 +31,4 @@ jobs:
           key: ${{ secrets.WWW_SSH_SECRET_KEY }}
           known_hosts: unnecessary
       - name: rsync
-        run: rsync -rvz -e 'ssh -vvv -p ${{ secrets.WWW_SSH_PORT }} -o StrictHostKeyChecking=no' ./dist/ ${{ secrets.WWW_USER }}@${{ secrets.WWW_HOST }}:${{ secrets.WWW_PATH }}
+        run: rsync -rvz -e 'ssh -vvv -p ${{ secrets.WWW_SSH_PORT }} -o StrictHostKeyChecking=no -o KexAlgorithms=ecdh-sha2-nistp521' ./dist/ ${{ secrets.WWW_USER }}@${{ secrets.WWW_HOST }}:${{ secrets.WWW_PATH }}
