@@ -30,7 +30,5 @@ jobs:
         with:
           key: ${{ secrets.WWW_SSH_SECRET_KEY }}
           known_hosts: unnecessary
-      - name: debug
-        run: rsync --version && curl ifconfig.me && curl -sI https://nycu.me
       - name: rsync
-        run: rsync -rv -e 'ssh -p ${{ secrets.WWW_SSH_PORT }} -o StrictHostKeyChecking=no' ./dist/ ${{ secrets.WWW_USER }}@${{ secrets.WWW_HOST }}:${{ secrets.WWW_PATH }}
+        run: sleep 1 && rsync -rv -e 'ssh -p ${{ secrets.WWW_SSH_PORT }} -o StrictHostKeyChecking=no' ./dist/ ${{ secrets.WWW_USER }}@${{ secrets.WWW_HOST }}:${{ secrets.WWW_PATH }}
