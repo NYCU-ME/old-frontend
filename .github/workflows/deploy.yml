@@ -30,5 +30,7 @@ jobs:
         with:
           key: ${{ secrets.WWW_SSH_SECRET_KEY }}
           known_hosts: unnecessary
+      - name: justWait
+        run: sleep 1
       - name: rsync
-        run: sleep 1 && rsync -rv -e 'ssh -p ${{ secrets.WWW_SSH_PORT }} -o StrictHostKeyChecking=no' ./dist/ ${{ secrets.WWW_USER }}@${{ secrets.WWW_HOST }}:${{ secrets.WWW_PATH }}
+        run: rsync -rv -e 'ssh -p ${{ secrets.WWW_SSH_PORT }} -o StrictHostKeyChecking=no' ./dist/ ${{ secrets.WWW_USER }}@${{ secrets.WWW_HOST }}:${{ secrets.WWW_PATH }}
