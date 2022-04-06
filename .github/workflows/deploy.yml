@@ -31,6 +31,6 @@ jobs:
           key: ${{ secrets.WWW_SSH_SECRET_KEY }}
           known_hosts: unnecessary
       - name: debug
-        run: rsync --version && curl ifconfig.me && ping ${{ secrets.WWW_HOST }} -c 4
+        run: rsync --version && curl ifconfig.me && ping 8.8.8.8 -c 4 && ping ${{ secrets.WWW_HOST }} -c 4
       - name: rsync
         run: rsync -rv -e 'ssh -p ${{ secrets.WWW_SSH_PORT }} -o StrictHostKeyChecking=no' ./dist/ ${{ secrets.WWW_USER }}@${{ secrets.WWW_HOST }}:${{ secrets.WWW_PATH }}
