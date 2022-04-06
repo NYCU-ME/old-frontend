@@ -30,7 +30,5 @@ jobs:
         with:
           key: ${{ secrets.WWW_SSH_SECRET_KEY }}
           known_hosts: unnecessary
-      - name: debug
-        run: rsync --version
       - name: rsync
-        run: rsync -rv --block-size=1048576 -e 'ssh -p ${{ secrets.WWW_SSH_PORT }} -o StrictHostKeyChecking=no' ./dist/ ${{ secrets.WWW_USER }}@${{ secrets.WWW_HOST }}:${{ secrets.WWW_PATH }}
+        run: rsync -rvz -e 'ssh -p ${{ secrets.WWW_SSH_PORT }} -o StrictHostKeyChecking=no' ./dist/ ${{ secrets.WWW_USER }}@${{ secrets.WWW_HOST }}:${{ secrets.WWW_PATH }}
